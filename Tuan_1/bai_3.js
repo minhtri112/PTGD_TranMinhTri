@@ -4,8 +4,10 @@ const koalas = [88,91,110];
 const dolphins_tb = dolphins.reduce((cal,item) => cal + item, 0) / dolphins.length; 
 const koalas_tb =  dolphins.reduce((cal,item) => cal + item, 0) / koalas.length;
 
-console.log('Điểm trung bình dolphin : ' + dolphins_tb);
-console.log('Điểm trung bình koalas : ' + koalas_tb);
+console.log('Điểm trung bình dolphin : ' + dolphins_tb.toFixed(2));
+console.log('Điểm trung bình koalas : ' + koalas_tb.toFixed(2
+    
+));
 
 if(dolphins_tb > koalas_tb){
     console.log('Dolphin cao hơn Koalas');
