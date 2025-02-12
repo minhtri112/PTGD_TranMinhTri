@@ -57,4 +57,3 @@ const scorers = game.scored.reduce((acc,item)=>{
     return acc;
 })
 
-console.log(scorers);
