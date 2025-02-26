@@ -1,0 +1,36 @@
+.main{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    padding: 40px 20px;
+}
+.main .inner-right{
+    justify-content: center;
+    align-items: center;
+}
+.main .inner-right h1{
+    text-align: center;
+}
+.main .inner-right img{
+    width: 400px;
+    height: auto;
+    text-align: center;
+    padding: 0 100px;
+}
+.main .inner-right p{
+    font-size: 18px;
+    text-align: center;
+}
+ 
+.buttonClass{
+    width: 100%;
+    padding: 0 100px;
+}
+.buttonClass button{
+    margin-left: 10px;
+    border: none;
+    background-color: #FCF0F5;
+    padding: 5px 10px;
+    color: #da1366;
+    font-size: 14px;
+}
