@@ -1,0 +1,47 @@
+.container{
+    padding: 20px 100px;
+}
+
+.box-recipe .box-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-recipe .box-content .avatar{
+    margin-right: 40px;
+}
+
+.box-recipe .box-content .text-desc p{
+    font-size: 14px;
+    color: #000;
+}
+
+.box-recipe .box-content .text-desc a{
+    text-decoration: none;
+    color: rgb(233, 10, 147);
+    font-weight: 600;
+}
+.box-recipe .box-content .text-desc button{
+    margin-left: 20px;
+    color: #fff;
+    background-color: rgb(233, 10, 147);
+    padding: 5px 15px;
+    border: none;
+    font-weight: 600;
+    border-radius: 8px;
+}
+.tabBar {
+    margin-top: 30px;
+}
+.tabBar button{
+    margin-left: 10px;
+    border: none;
+    padding: 5px 15px;
+    font-weight: 500;
+    border-radius: 8px;
+}
+.tabBar button:nth-child(1){
+    color: #fff;
+    background-color: rgb(168, 107, 145);
+}
