@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+
+.tabBar button{
+    margin-left: 10px;
+    border: none;
+    padding: 5px 15px;
+    font-weight: 500;
+    border-radius: 8px;
+}

@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+/* .listProduct{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+} */
+
+/* .listProduct .product-item{
+    border-radius: 8px;
+    border: 2px solid #777474;
+    margin-top: 20px;
+    width: 23%;
+} */
+
+/* .listProduct .product-item .img{
+    width: 100%;
+} */
+
+/* .listProduct .product-item .img  {
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+    aspect-ratio: 4/3;
+}
+
+.listProduct .product-item .content{
+   padding: 10px 30px;
+   display: flex;
+   justify-content: space-between;
+}
+
+.listProduct .product-item .content .title{
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    flex:1;
+    font-weight: 700;
+    margin: 0;
+
+}
+.listProduct .product-item .content img{
+    height: 40px;
+    width: 40px;
+}
+.listProduct .product-item .quantity{
+    padding: 0px 30px;
+    margin-bottom: 10px;
+    padding: 10px 30px;
+}
+
+.listProduct .product-item span{
+    font-size: 15px;
+    padding: 5px 15px;
+    background-color: aquamarine;
+    border-radius: 5px;
+} */

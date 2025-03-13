@@ -2,6 +2,7 @@
 import DemoReactMemo from './components/DemoReactMemo'
 import DemoUseMeno from './components/DemoUseMeno'
 import DemoUseReducer from './components/DemoUseReducer'
+import BoxProduct from './components/BoxProduct'
 
 
 function App() {
@@ -9,7 +10,8 @@ function App() {
     <>
      {/* <DemoUseReducer/> */}
      {/* <DemoUseMeno/> */}
-     <DemoReactMemo/>
+     {/* <DemoReactMemo/> */}
+     <BoxProduct/>
     </>
   )
 }
