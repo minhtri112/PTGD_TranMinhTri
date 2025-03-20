@@ -1,0 +1,29 @@
+.product{
+    display: flex;
+    padding: 30px 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+.product .img{
+    width: 50%;
+    margin-right: 20px;
+}
+
+.product .img img{
+    width: 100%;
+}
+
+.product .box{
+    flex: 1;
+}
+
+.title{
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.desc{
+    margin-top: 10px;
+}
