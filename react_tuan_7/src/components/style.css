@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.menu{
+    width: 15%;
+    border: 1px solid #ddd ;
+    border-radius: 8px;
+    padding: 15px 20px;
+}
+
+.subMenu ul li{
+    width: 100%;
+    padding: 5px 10px;
+    margin-top: 20px;
+    color: #fff;
+    background-color: pink;
+    border-radius: 10px;
+    font-weight: 700;
+}
+.subMenu ul li a{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+.subMenu ul li a span{
+    margin-left: 10px;
+}
+
+.menu .image{
+    margin-top: 90px;
+}
