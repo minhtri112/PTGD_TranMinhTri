@@ -12,14 +12,59 @@ import dola from "../../image/Button 1529.png"
 import user from "../../image/Button 1530.png"
 import { FaCaretUp } from "react-icons/fa";
 import avarta1 from "../../image/Avatar (1).png"
-import edit from "../../image/create.png"
+
 import { MdOutlineNavigateBefore } from "react-icons/md";
 import { MdOutlineNavigateNext } from "react-icons/md";
 import export_file from "../../image/Move up.png"
 import download from "../../image/Download.png";
 import { IoIosAddCircle } from "react-icons/io";
+import { useEffect, useState } from "react";
+
+import ItemOrder from "../../components/ItemOrder";
 
 function DashBoard() {
+    const [data_tunrover,setTunrover] = useState({}); 
+    const [data_profit,setProfit] = useState({}); 
+    const [data_newCustomer,setNewCustomer] = useState({});
+    
+    const [data_orderValue,setOrderValue] = useState([]);
+
+
+    useEffect(() => {
+        fetch('http://localhost:3002/tunrover')
+        .then(response => response.json())
+        .then(data => {
+            setTunrover(data);
+        })
+    },[]);
+
+    useEffect(() => {
+        fetch('http://localhost:3002/profit')
+        .then(response => response.json())
+        .then(data => {
+            setProfit(data);
+        })
+    },[]);
+
+
+    useEffect(() => {
+        fetch('http://localhost:3002/newCustomer')
+        .then(response => response.json())
+        .then(data => {
+            setNewCustomer(data);
+        })
+    },[]);
+
+    useEffect(() => {
+        fetch('http://localhost:3002/orders?_page=1&_limit=3')
+        .then(response => response.json())
+        .then(data => {
+            setOrderValue(data);
+        })
+    },[]);
+
+    console.log(data_orderValue);
+
     return (
         <>
             <div className="dashboard flex">
@@ -51,10 +96,10 @@ function DashBoard() {
                             <div className="item flex justify-between bg-[#FFF0F5]">
                                 <div className="content-item">
                                     <h4 >Turnover</h4>
-                                    <h2 >$ 92.403</h2>
+                                    <h2 >$ {data_tunrover.metric}</h2>
                                     <p className="flex items-center">
                                         <span className="flex items-center mr-1">
-                                            <FaCaretUp className="mr-1" /> 5.39 %
+                                            <FaCaretUp className="mr-1" /> {data_tunrover.poc} %
                                         </span>
                                         period of change
                                     </p>
@@ -67,10 +112,10 @@ function DashBoard() {
                             <div className="item flex justify-between bg-[#EEF5FE]" >
                                 <div className="content-item">
                                     <h4>Profit</h4>
-                                    <h2>$ 92.403</h2>
+                                    <h2>$ {data_profit.metric}</h2>
                                     <p className="flex items-center">
                                         <span className="flex items-center mr-1">
-                                            <FaCaretUp className="mr-1" /> 5.39 %
+                                            <FaCaretUp className="mr-1" /> {data_profit.poc} %
                                         </span>
                                         period of change
                                     </p>
@@ -84,10 +129,10 @@ function DashBoard() {
                             <div className="item flex justify-between bg-[#F0F7FD]">
                                 <div className="content-item">
                                     <h4>New Customer</h4>
-                                    <h2>$ 92.403</h2>
+                                    <h2>{data_newCustomer.metric}</h2>
                                     <p className="flex items-center">
                                         <span className="flex items-center mr-1">
-                                            <FaCaretUp className="mr-1" /> 5.39 %
+                                            <FaCaretUp className="mr-1" /> {data_newCustomer.poc} %
                                         </span>
                                         period of change
                                     </p>
@@ -130,27 +175,15 @@ function DashBoard() {
                                     <th></th>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td><input type="checkbox" /></td>
-                                        <td>
-                                            <div className="flex items-center">
-                                                <img src={avarta1} alt="" />
-                                                <h2>Elizabeth Lee</h2>
-                                            </div>
-                                        </td>
-                                        <td>AvatartSystems</td>
-                                        <td>$350</td>
-                                        <td>12/12/2024</td>
-                                        <td>
-                                            <button>new</button>
-                                        </td>
-                                        <td>
-                                            <button>
-                                                <img src={edit} alt="" />
-                                            </button>
-                                        </td>
-                                    </tr>
-
+                                    {
+                                        data_orderValue.map(item => {
+                                            return (
+                                                <>
+                                                <ItemOrder item = {item} key = {item.id}></ItemOrder>
+                                                </>
+                                            )
+                                        })
+                                    }
                                 </tbody>
                             </table>
                         </div>

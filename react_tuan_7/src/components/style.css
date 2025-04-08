@@ -8,7 +8,7 @@
     border: 1px solid #ddd ;
     border-radius: 8px;
     padding: 20px 20px 10px 20px;
-    height: 100%;
+    height: 100hv;
 }
 
 .subMenu ul li{
@@ -83,7 +83,7 @@
 
 .main .overview{
     margin-top: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .main .overview .item{
@@ -94,13 +94,13 @@
 .main .overview .item .content-item h4{
     font-size: 20px;
     font-weight: 700;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .main .overview .item .content-item h2{
     font-size: 30px;
     font-weight: 700;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 .main .overview .item .content-item span{
     color: green;
@@ -108,13 +108,13 @@
 }
 .main .table{
     width: 100%;
-    margin-top: 30px;
+    margin-top: 15px;
 }
 
 .main .table .button-action {
     display: flex;
     justify-content: flex-end; /* Căn các phần tử sang bên trái */
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .main .table .button-action button{

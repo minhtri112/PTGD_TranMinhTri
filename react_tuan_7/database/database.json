@@ -17,12 +17,14 @@
       "customerName": "Elizabeth Lee",
       "orderValue": 359,
       "orderData": "10/07/2023",
+      "conpanyName": "CompanyName",
       "status": "New",
       "image": "https://res.cloudinary.com/dry3w55lc/image/upload/v1744131262/Avatar_aeett3.png"
     },
     {
       "id" : 2,
       "customerName": "Elizabeth Lee",
+      "conpanyName": "CompanyName",
       "orderValue": 359,
       "orderData": "10/07/2023",
       "status": "New",
@@ -31,6 +33,7 @@
     {
       "id" : 3,
       "customerName": "Elizabeth Lee",
+      "conpanyName": "CompanyName",
       "orderValue": 359,
       "orderData": "10/07/2023",
       "status": "New",
@@ -39,6 +42,7 @@
     {
       "id" : 4,
       "customerName": "Elizabeth Lee",
+      "conpanyName": "CompanyName",
       "orderValue": 359,
       "orderData": "10/07/2023",
       "status": "New",
@@ -47,6 +51,7 @@
     {
       "id" : 5,
       "customerName": "Elizabeth Lee",
+      "conpanyName": "CompanyName",
       "orderValue": 359,
       "orderData": "10/07/2023",
       "status": "New",
@@ -55,6 +60,7 @@
     {
       "id" : 6,
       "customerName": "Elizabeth Lee",
+      "conpanyName": "CompanyName",
       "orderValue": 359,
       "orderData": "10/07/2023",
       "status": "New",
@@ -63,6 +69,7 @@
     {
       "id" : 7,
       "customerName": "Elizabeth Lee",
+      "conpanyName": "CompanyName",
       "orderValue": 359,
       "orderData": "10/07/2023",
       "status": "New",
@@ -71,6 +78,7 @@
     {
       "id" : 8,
       "customerName": "Elizabeth Lee",
+      "conpanyName": "CompanyName",
       "orderValue": 359,
       "orderData": "10/07/2023",
       "status": "New",
@@ -79,6 +87,7 @@
     {
       "id" : 9,
       "customerName": "Elizabeth Lee",
+      "conpanyName": "CompanyName",
       "orderValue": 359,
       "orderData": "10/07/2023",
       "status": "New",
@@ -87,6 +96,7 @@
     {
       "id" : 10,
       "customerName": "Elizabeth Lee",
+      "conpanyName": "CompanyName",
       "orderValue": 359,
       "orderData": "10/07/2023",
       "status": "New",
@@ -95,6 +105,7 @@
     {
       "id" : 11,
       "customerName": "Elizabeth Lee",
+      "conpanyName": "CompanyName",
       "orderValue": 359,
       "orderData": "10/07/2023",
       "status": "New",
@@ -103,6 +114,7 @@
     {
       "id" : 12,
       "customerName": "Elizabeth Lee",
+      "conpanyName": "CompanyName",
       "orderValue": 359,
       "orderData": "10/07/2023",
       "status": "New",
@@ -111,6 +123,7 @@
     {
       "id" : 13,
       "customerName": "Elizabeth Lee",
+      "conpanyName": "CompanyName",
       "orderValue": 359,
       "orderData": "10/07/2023",
       "status": "New",
@@ -119,6 +132,7 @@
     {
       "id" : 14,
       "customerName": "Elizabeth Lee",
+      "conpanyName": "CompanyName",
       "orderValue": 359,
       "orderData": "10/07/2023",
       "status": "New",
@@ -127,6 +141,7 @@
     {
       "id" : 15,
       "customerName": "Elizabeth Lee",
+      "conpanyName": "CompanyName",
       "orderValue": 359,
       "orderData": "10/07/2023",
       "status": "New",
@@ -135,6 +150,7 @@
     {
       "id" : 16,
       "customerName": "Elizabeth Lee",
+      "conpanyName": "CompanyName",
       "orderValue": 359,
       "orderData": "10/07/2023",
       "status": "New",
@@ -143,6 +159,7 @@
     {
       "id" : 17,
       "customerName": "Elizabeth Lee",
+      "conpanyName": "CompanyName",
       "orderValue": 359,
       "orderData": "10/07/2023",
       "status": "New",
@@ -151,6 +168,7 @@
     {
       "id" : 18,
       "customerName": "Elizabeth Lee",
+      "conpanyName": "CompanyName",
       "orderValue": 359,
       "orderData": "10/07/2023",
       "status": "New",
