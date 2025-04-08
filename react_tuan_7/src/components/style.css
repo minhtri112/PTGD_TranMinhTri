@@ -1,26 +1,35 @@
-@import "tailwindcss";
+
 
 *{
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 .menu{
     width: 15%;
     border: 1px solid #ddd ;
     border-radius: 8px;
-    padding: 15px 20px;
+    padding: 20px 20px 10px 20px;
+    height: 100%;
 }
 
 .subMenu ul li{
     width: 100%;
     padding: 5px 10px;
     margin-top: 20px;
-    color: #fff;
-    background-color: pink;
+    color: #000;
     border-radius: 10px;
     font-weight: 700;
 }
+
+.subMenu ul li:nth-child(1){
+    background-color: #F44B86;
+    color: #fff;
+}
+
+.subMenu ul li:hover{
+    background-color: #F44B86;
+    color: #fff;
+}
+
 .subMenu ul li a{
     display: flex;
     text-align: center;
@@ -30,8 +39,154 @@
 
 .subMenu ul li a span{
     margin-left: 10px;
+ 
 }
 
 .menu .image{
-    margin-top: 90px;
+    margin-top: 60px;
 }
+
+.main{
+    width: 85%;
+    border: #ddd solid 1px;
+    border-radius: 10px;
+}
+
+.main .header-dashboard{
+    border-bottom: #ddd solid 1px;
+    padding: 10px 20px;
+}
+
+.main .header-dashboard  img{
+    margin-left: 25px;
+    width: 25px;
+    aspect-ratio: 1/1;
+}
+.main .header-dashboard .form-search{
+    background-color: #F3F4F6;
+    border-radius: 5px;
+    padding: 5px;
+    width: 300px;
+}
+
+.main .header-dashboard .form-search input{
+    width: 100%;
+    border: none;
+}
+.main .header-dashboard .form-search input:focus{
+    outline: none;
+}
+
+.main .content-dashboard{
+    padding: 10px 20px;
+}
+
+.main .overview{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.main .overview .item{
+    padding: 20px;
+    width: 28%;
+    border-radius: 10px;
+}
+.main .overview .item .content-item h4{
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.main .overview .item .content-item h2{
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.main .overview .item .content-item span{
+    color: green;
+    font-weight: 600;
+}
+.main .table{
+    width: 100%;
+    margin-top: 30px;
+}
+
+.main .table .button-action {
+    display: flex;
+    justify-content: flex-end; /* Căn các phần tử sang bên trái */
+    margin-bottom: 20px;
+}
+
+.main .table .button-action button{
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    margin-right: 10px;
+    border: 1px solid #F44B86;
+    color: #F44B86;
+    border-radius: 8px;
+}
+
+.main .table .button-action button:nth-child(1){
+    border: 1px solid green;
+    color: green;
+}
+
+.main .table .button-action button img{
+    margin-right: 5px;
+}
+
+/* talbe */
+
+table {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    border-spacing: 0 10px;
+  }
+  
+thead th {
+    text-align: left;
+    font-weight: 600;
+    color: #6b7280; 
+    padding: 12px 16px;
+}
+  
+tbody tr {
+    background-color: #fff;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+  
+  tbody td {
+    padding: 12px 16px;
+    vertical-align: middle;
+}
+
+.footer-overview {
+    margin-top: 30px;
+}
+
+
+.footer-overview .pagination button{
+    margin-left: 10px;
+    width: 25px; /* Đặt chiều rộng */
+    height: 25px; /* Đặt chiều cao bằng chiều rộng */
+    display: flex; /* Đảm bảo nội dung căn giữa */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+}
+
+.footer-overview .pagination button:nth-child(2){
+    background-color: #F44B86;
+    border-radius: 50%;
+    color: #fff;
+}
+.footer-overview .pagination button:hover{
+    background-color: #F44B86;
+    border-radius: 50%;
+    color: #fff;
+    transition: all 0.1s ease;
+}
+@import "tailwindcss";

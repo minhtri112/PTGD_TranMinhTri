@@ -1,6 +1,6 @@
 import logo from "../image/Image 1858.png";
 import group from "../image/Group.png"
-import {Link} from "react-router-dom";
+import {Link,NavLink} from "react-router-dom";
 import { MdDashboard } from "react-icons/md";
 import { CiFolderOn } from "react-icons/ci";
 import { RiTeamFill } from "react-icons/ri";
@@ -20,41 +20,41 @@ function Menu(){
             <div className="subMenu">
                 <ul>
                     <li>
-                     <Link className="">
+                     <NavLink className="">
                       <MdDashboard />
                        <span>DashBoard</span>
-                     </Link>
+                     </NavLink>
                     </li>
                     <li>
-                     <Link className="">
+                     <NavLink className="" to='/project'>
                      <FaFolder />
                        <span>Project</span>
-                     </Link>
+                     </NavLink>
                     </li>
 
                     <li>
-                     <Link className="">
+                     <NavLink className="" to='/teams'>
                      <RiTeamFill />
                        <span>Teams</span>
-                     </Link>
+                     </NavLink>
                     </li>
                     <li>
-                     <Link className="">
+                     <NavLink className="" to='/analytics'>
                      <SiSimpleanalytics />
                        <span>Analytics</span>
-                     </Link>
+                     </NavLink>
                     </li>
                     <li>
-                     <Link className="">
+                     <NavLink className="" to='/messages'>
                      <RiMessageFill />
                        <span>Messages</span>
-                     </Link>
+                     </NavLink>
                     </li>
                     <li>
-                     <Link className="">
+                     <NavLink className="" to='/integrations'>
                      <BsChevronBarRight />
                        <span>Integrations</span>
-                     </Link>
+                     </NavLink>
                     </li>
                 </ul>
             </div>
