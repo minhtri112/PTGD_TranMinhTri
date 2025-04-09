@@ -175,21 +175,12 @@
       "image": "https://res.cloudinary.com/dry3w55lc/image/upload/v1744131262/Avatar_1_fzt4ea.png"
     },
     {
-      "customerName": "cscscd",
-      "image": "scsc",
-      "conpanyName": "sdcsc",
-      "orderValue": 122,
-      "orderDate": "22/2/2003",
-      "status": "New",
-      "id": 19
-    },
-    {
-      "id": "ed21",
-      "customerName": "cscscd",
-      "image": "scsc",
-      "conpanyName": "sdcsc",
-      "orderValue": null,
-      "orderDate": "22/2/2003",
+      "id": "08cc",
+      "customerName": "Tran Minh Tri",
+      "image": "https://res.cloudinary.com/dry3w55lc/image/upload/v1744131262/Avatar_4_bv8pw6.png",
+      "conpanyName": "IUH",
+      "orderValue": 234,
+      "orderData": "23/12/2004",
       "status": "In-progress"
     }
   ]

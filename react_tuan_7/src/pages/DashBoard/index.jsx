@@ -22,7 +22,7 @@ import { useEffect, useState } from "react";
 import ItemOrder from "../../components/ItemOrder";
 import { useNavigate, useSearchParams } from "react-router-dom"
 
-import Model from "../../components/Model"
+import Model from "../../components/ModelCreate"
 
 function DashBoard() {
     const [data_tunrover, setTunrover] = useState({});

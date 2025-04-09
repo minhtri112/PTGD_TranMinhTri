@@ -1,4 +1,4 @@
-import edit from "../image/create.png"
+import AppEdit from "../components/ModelEdit";
 function ItemOrder(props) {
     
     const { item } = props;
@@ -19,9 +19,7 @@ function ItemOrder(props) {
                     <button>{item.status}</button>
                 </td>
                 <td>
-                    <button>
-                        <img src={edit} alt="" />
-                    </button>
+                   <AppEdit item = {item}></AppEdit>
                 </td>
             </tr>
         </>

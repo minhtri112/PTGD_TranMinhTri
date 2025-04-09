@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-modal';
 import { IoIosAddCircle } from "react-icons/io";
 import { IoCloseSharp } from "react-icons/io5";
-
+import edit from "../image/create.png"
+Modal.setAppElement("#root")
 const customStyles = {
     content: {
         top: '50%',
@@ -15,8 +16,13 @@ const customStyles = {
 };
 
 
-function App() {
+function AppEdit(props) {
+    const {item} = props;
     const [modalIsOpen, setIsOpen] = React.useState(false);
+    const [data,setData] = useState(item);
+    
+
+    
 
     function openModal() {
         setIsOpen(true);
@@ -30,47 +36,53 @@ function App() {
         setIsOpen(false);
     }
 
+    const editOnChange = (e)=>{
+        const name = e.target.name;
+        const value = e.target.value;
+        setData(
+            {
+                ...data,
+                [name] : value
+            }
+        );
+    }
+
     const clickSubmitData = (e) => {
         e.preventDefault();
-        const customerName = e.target.customerName.value;
-        const image = e.target.image.value;
-        const conpanyName = e.target.conpanyName.value;
-        const orderValue = parseInt(e.target.orderValue.value);
-        const orderDate = e.target.orderDate.value;
-        const status = e.target.status.value;
-
-        const data = {
-            "customerName" : customerName,
-            "image" : image,
-            "conpanyName" : conpanyName,
-            "orderValue" : orderValue,
-            "orderDate" : orderDate,
-            "status" : status
-        }
-        fetch("http://localhost:3002/orders", {
-            method: "POST",
-            headers : {
-                accept : "application/json", 
-                "Content-Type" : "application/json"
+    
+        fetch(`http://localhost:3002/orders/${data.id}`, {
+            method: "PUT",
+            headers: {
+                accept: "application/json",
+                "Content-Type": "application/json",
             },
             body: JSON.stringify(data),
         })
-            .then((res) => res.json())
+            .then((res) => {
+                if (!res.ok) {
+                    // Handle HTTP errors (e.g., 404, 500)
+                    throw new Error(`HTTP error! Status: ${res.status}`);
+                }
+                return res.json(); // Parse JSON only if the response is OK
+            })
             .then((data) => {
                 if (data) {
-                    alert("Add order success");
+                    alert("Edit order success");
                     console.log(data);
-                    setIsOpen(false);
+                    setIsOpen(false); // Close modal or form
                 }
+            })
+            .catch((error) => {
+                // Handle network or runtime errors
+                console.error("Error updating order:", error);
+                alert(`Failed to update order: ${error.message}`);
             });
-
-    }
+    };
 
     return (
         <div>
             <button onClick={openModal}>
-                <IoIosAddCircle className="mr-1 text-[20px]" />
-                Add
+                <img src={edit} alt="" />
             </button>
             <Modal
                 isOpen={modalIsOpen}
@@ -86,37 +98,37 @@ function App() {
                 <form className='flex flex-col gap-4 mt-4 from' onSubmit={clickSubmitData}>
                     <div className='flex flex-col gap-2'>
                         <label htmlFor="" className='text-[16px]'>Customer name :</label>
-                        <input type="text" name='customerName' />
+                        <input type="text" name='customerName' value={data.customerName } onChange={editOnChange}/>
                     </div>
                     <div className='flex flex-col gap-2'>
                         <label htmlFor="" className='text-[16px]'>Customer image :</label>
-                        <input type="text" name='image' />
+                        <input type="text" name='image' value={data.image} onChange={editOnChange}/>
                     </div>
                     <div className='flex flex-col gap-2'>
                         <label htmlFor="" className='text-[16px]'>Company :</label>
-                        <input type="text" name='conpanyName' />
+                        <input type="text" name='conpanyName' value={data.conpanyName} onChange={editOnChange}/>
                     </div>
                     <div className='flex flex-col gap-2'>
                         <label htmlFor="" className='text-[16px]'>Order value :</label>
-                        <input type="text" name='orderValue' />
+                        <input type="text" name='orderValue' value={data.orderValue} onChange={editOnChange}/>
                     </div>
                     <div className='flex flex-col gap-2'>
                         <label htmlFor="" className='text-[16px]'>Order date :</label>
-                        <input type="text" name='orderDate' />
+                        <input type="text" name='orderDate' value={data.orderData} onChange={editOnChange}/>
                     </div>
 
                     <div className='flex flex-col gap-2'>
                         <label htmlFor="" className='text-[16px]'>Status :</label>
-                        <select name="status" id="">
-                            <option value="New">New</option>
-                            <option value="In-progress">In-progress</option>
-                            <option value="Completed">Completed</option>
+                        <select name="status" id="" value = {data.status} onChange={editOnChange}>
+                            <option value="New" >New</option>
+                            <option value="In-progress" >In-progress</option>
+                            <option value="Completed" >Completed</option>
                         </select>
                     </div>
 
                     <div className='action-btn flex justify-end gap-4 mt-4 text-left'>
                         <button type='button' onClick={closeModal} className='bg-[red] text-[#fff] font-bold p-2 mr-2.5 rounded-[5px]'>CANCEL</button>
-                        <button type='submit' className='bg-[green] text-[#fff] font-bold p-2 mr-2.5 rounded-[5px]'>ADD</button>
+                        <button type='submit' className='bg-[green] text-[#fff] font-bold p-2 mr-2.5 rounded-[5px]'>EDIT</button>
                     </div>
                 </form>
             </Modal>
@@ -124,4 +136,4 @@ function App() {
     );
 }
 
-export default App;
+export default AppEdit;
