@@ -70,11 +70,11 @@ function DashBoard() {
         setPageNumber(parseInt(page));
 
     
-        fetch(`http://localhost:3002/orders?_sort=id&_page=${pageNumber}&_per_page=3`)
+        fetch(`http://localhost:3002/orders?_sort=-id&_page=${pageNumber}&_per_page=3`)
             .then(response => response.json())
             .then(data => {
                 setOrderPagination(data.data);
-                // console.log(data.data);
+                console.log(data.data);
             })
     }, [pageNumber]);
 
