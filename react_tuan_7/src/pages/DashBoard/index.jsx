@@ -6,64 +6,117 @@ import "./style.css"
 import item_1 from "../../image/Squares four 1.png"
 import item_2 from "../../image/File text 1.png"
 import { IoIosSearch } from "react-icons/io";
-import { SiAppian } from "react-icons/si"
+
 import cart from "../../image/Button 1509.png"
 import dola from "../../image/Button 1529.png"
 import user from "../../image/Button 1530.png"
 import { FaCaretUp } from "react-icons/fa";
-import avarta1 from "../../image/Avatar (1).png"
 
 import { MdOutlineNavigateBefore } from "react-icons/md";
 import { MdOutlineNavigateNext } from "react-icons/md";
 import export_file from "../../image/Move up.png"
 import download from "../../image/Download.png";
-import { IoIosAddCircle } from "react-icons/io";
+
 import { useEffect, useState } from "react";
 
 import ItemOrder from "../../components/ItemOrder";
+import { useNavigate, useSearchParams } from "react-router-dom"
+
+import Model from "../../components/Model"
 
 function DashBoard() {
-    const [data_tunrover,setTunrover] = useState({}); 
-    const [data_profit,setProfit] = useState({}); 
-    const [data_newCustomer,setNewCustomer] = useState({});
-    
-    const [data_orderValue,setOrderValue] = useState([]);
+    const [data_tunrover, setTunrover] = useState({});
+    const [data_profit, setProfit] = useState({});
+    const [data_newCustomer, setNewCustomer] = useState({});
+    const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
+
+
+    const [data_orderPagination, setOrderPagination] = useState([]);
+    const [pageNumber, setPageNumber] = useState(1);
+    const [pageCount, setPageCount] = useState(0);
 
 
     useEffect(() => {
         fetch('http://localhost:3002/tunrover')
-        .then(response => response.json())
-        .then(data => {
-            setTunrover(data);
-        })
-    },[]);
+            .then(response => response.json())
+            .then(data => {
+                setTunrover(data);
+            })
+    }, []);
 
     useEffect(() => {
         fetch('http://localhost:3002/profit')
-        .then(response => response.json())
-        .then(data => {
-            setProfit(data);
-        })
-    },[]);
+            .then(response => response.json())
+            .then(data => {
+                setProfit(data);
+            })
+    }, []);
 
 
     useEffect(() => {
         fetch('http://localhost:3002/newCustomer')
-        .then(response => response.json())
-        .then(data => {
-            setNewCustomer(data);
-        })
-    },[]);
+            .then(response => response.json())
+            .then(data => {
+                setNewCustomer(data);
+            })
+    }, []);
+    
+
 
     useEffect(() => {
-        fetch('http://localhost:3002/orders?_page=1&_limit=3')
-        .then(response => response.json())
-        .then(data => {
-            setOrderValue(data);
-        })
-    },[]);
+        const page = searchParams.get("_page") || 1;
 
-    console.log(data_orderValue);
+        setPageNumber(parseInt(page));
+
+    
+        fetch(`http://localhost:3002/orders?_sort=id&_page=${pageNumber}&_per_page=3`)
+            .then(response => response.json())
+            .then(data => {
+                setOrderPagination(data.data);
+                // console.log(data.data);
+            })
+    }, [pageNumber]);
+
+    
+
+    useEffect(() => {
+        fetch('http://localhost:3002/orders')
+            .then(response => response.json())
+            .then(data => {
+                let pageCount = Math.ceil(data.length / 3);
+                setPageCount(pageCount);
+            })
+    }, []);
+
+    const onClickPagition = (e) => {
+        const page = e.target.innerText;
+        setPageNumber(parseInt(page));
+        navigate(`?_page=${page}`);
+        
+    }
+
+    const onClickBeforePage = () => {
+        if (pageNumber > 1) {
+            const page = pageNumber - 1;
+            navigate(`?_page=${page}`);
+            setPageNumber(page);
+        }
+
+    }
+
+
+    const onClickAfterPage = () => {
+        if (pageNumber < pageCount) {
+            const page = pageNumber + 1;
+            navigate(`?_page=${page}`);
+            setPageNumber(page);
+        }
+
+    }
+
+
+
 
     return (
         <>
@@ -151,10 +204,10 @@ function DashBoard() {
 
                         <div className="table">
                             <div className="button-action">
-                                <button className="">
-                                  <IoIosAddCircle className="mr-1 text-[20px]"/>
-                                    Add
-                                </button>
+
+
+                                <Model></Model>
+
                                 <button className="">
                                     <img src={download} alt="" />
                                     Import file
@@ -166,21 +219,23 @@ function DashBoard() {
                             </div>
                             <table className="table-auto">
                                 <thead>
-                                    <th><input type="checkbox" /></th>
-                                    <th>CUSTOMER NAME</th>
-                                    <th>COMPANY</th>
-                                    <th>ORDER VALUE</th>
-                                    <th>ORDER DATE</th>
-                                    <th>STATUS</th>
-                                    <th></th>
+                                    <tr>
+                                        <th><input type="checkbox" /></th>
+                                        <th>CUSTOMER NAME</th>
+                                        <th>COMPANY</th>
+                                        <th>ORDER VALUE</th>
+                                        <th>ORDER DATE</th>
+                                        <th>STATUS</th>
+                                        <th></th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                     {
-                                        data_orderValue.map(item => {
+                                        data_orderPagination.map((item, index) => {
                                             return (
-                                                <>
-                                                <ItemOrder item = {item} key = {item.id}></ItemOrder>
-                                                </>
+
+                                                <ItemOrder item={item} key={index}></ItemOrder>
+
                                             )
                                         })
                                     }
@@ -195,13 +250,15 @@ function DashBoard() {
                             </div>
 
                             <div className="pagination flex items-center">
-                                <button><MdOutlineNavigateBefore /></button>
-                                <button>1</button>
-                                <button>2</button>
-                                <button>3</button>
-                                <button>4</button>
-                                <button>5</button>
-                                <button><MdOutlineNavigateNext /></button>
+                                <button onClick={onClickBeforePage}><MdOutlineNavigateBefore /></button>
+                                {
+                                    [...Array(pageCount)].map((_, index) => {
+                                        return (
+                                            <button className={index + 1 == pageNumber ? 'active' : ''} key={index + 1} onClick={onClickPagition}>{index + 1}</button>
+                                        )
+                                    })
+                                }
+                                <button onClick={onClickAfterPage}><MdOutlineNavigateNext /></button>
                             </div>
                         </div>
 

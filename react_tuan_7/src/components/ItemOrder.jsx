@@ -2,7 +2,6 @@ import edit from "../image/create.png"
 function ItemOrder(props) {
     
     const { item } = props;
-    console.log(item);
     return (
         <>
             <tr>
