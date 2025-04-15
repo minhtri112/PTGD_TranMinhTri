@@ -20,7 +20,7 @@ function Menu(){
             <div className="subMenu">
                 <ul>
                     <li>
-                     <NavLink className="">
+                     <NavLink className=""  to='/'>
                       <MdDashboard />
                        <span>DashBoard</span>
                      </NavLink>
