@@ -65,18 +65,17 @@ function DashBoard() {
 
 
     useEffect(() => {
-        const page = searchParams.get("_page") || 1;
-
-        setPageNumber(parseInt(page));
-
+        const page = parseInt(searchParams.get("_page") || 1);
+        setPageNumber(page);
     
-        fetch(`http://localhost:3002/orders?_sort=-id&_page=${pageNumber}&_per_page=3`)
+        fetch(`http://localhost:3002/orders?_sort=-id&_page=${page}&_per_page=3`)
             .then(response => response.json())
             .then(data => {
                 setOrderPagination(data.data);
                 console.log(data.data);
-            })
-    }, [pageNumber]);
+            });
+    }, [searchParams]);
+    
 
     
 
@@ -89,30 +88,22 @@ function DashBoard() {
             })
     }, []);
 
+
     const onClickPagition = (e) => {
         const page = e.target.innerText;
-        setPageNumber(parseInt(page));
         navigate(`?_page=${page}`);
-        
     }
 
     const onClickBeforePage = () => {
         if (pageNumber > 1) {
-            const page = pageNumber - 1;
-            navigate(`?_page=${page}`);
-            setPageNumber(page);
+            navigate(`?_page=${pageNumber - 1}`);
         }
-
     }
-
-
+    
     const onClickAfterPage = () => {
         if (pageNumber < pageCount) {
-            const page = pageNumber + 1;
-            navigate(`?_page=${page}`);
-            setPageNumber(page);
+            navigate(`?_page=${pageNumber + 1}`);
         }
-
     }
 
 

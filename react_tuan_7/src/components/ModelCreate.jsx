@@ -45,7 +45,8 @@ function App() {
             "conpanyName" : conpanyName,
             "orderValue" : orderValue,
             "orderData" : orderDate,
-            "status" : status
+            "status" : status,
+            "id" :  "99" + new Date().getTime().toString()
         }
         fetch("http://localhost:3002/orders", {
             method: "POST",
@@ -109,7 +110,7 @@ function App() {
                         <label htmlFor="" className='text-[16px]'>Status :</label>
                         <select name="status" id="">
                             <option value="New">New</option>
-                            <option value="In-progress">In-progress</option>
+                            <option value="Processing">Processing</option>
                             <option value="Completed">Completed</option>
                         </select>
                     </div>
