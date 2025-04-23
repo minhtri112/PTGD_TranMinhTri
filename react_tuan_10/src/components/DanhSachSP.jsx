@@ -6,6 +6,7 @@ const productsdata = [
 ];
 import { useState ,useEffect} from "react";
 import AddProductForm from "./ThemSP";
+import SearchInput from "./TimKiem";
 const ProductList = () => {
     const [products, setProducts] = useState([]);
 
@@ -16,10 +17,19 @@ const ProductList = () => {
     const onAddProduct = (newProduct) => {
         products.push(newProduct);
     }
+
+    const handleSearch = (searchTerm) => {
+        const results = products.filter(product =>
+            productsdata.name.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        setProducts(results);
+      };
     return (
         <>
 
             <AddProductForm onAddProduct = {onAddProduct} />
+
+            <SearchInput onSearch = {handleSearch}/>
 
             <div className="container mx-auto mt-8">
                 <h1 className="text-2xl font-bold mb-4">Danh Sách Sản Phẩm</h1>
