@@ -3,7 +3,7 @@ import AddProductForm from "./components/ThemSP";
 function App() {
   return (
     <>
-      <AddProductForm />
+      
       <ProductList />
     </>
   )
